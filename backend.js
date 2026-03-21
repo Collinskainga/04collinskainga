@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -9,6 +10,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+
+app.get("/script.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "script.js"));
+});
 
 app.post("/send-email", async (req, res) => {
   try {
@@ -29,8 +34,10 @@ app.post("/send-email", async (req, res) => {
       },
     });
 
+    const fromAddress = process.env.EMAIL_USER || "collinskainga2004@gmail.com";
     const mailOptions = {
-      from: `${name} <${email}>`,
+      from: fromAddress,
+      replyTo: `${name} <${email}>`,
       to: "collinskainga2004@gmail.com",
       subject: `Portfolio message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
