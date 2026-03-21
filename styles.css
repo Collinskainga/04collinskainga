@@ -91,18 +91,27 @@ nav {
 .sidebar {
   position: fixed;
   top: 0;
-  left: -300px;
+  left: 0;
   width: 300px;
   height: 100vh;
   background: var(--surface);
   padding: 80px 20px 20px;
-  transition: left 0.3s ease;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
   z-index: 99;
   border-right: 1px solid var(--border);
 }
 
 .sidebar.active {
-  left: 0;
+  transform: translateX(0);
+}
+
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-active {
+  margin-left: 300px;
 }
 
 .nav-links {
@@ -143,6 +152,29 @@ nav {
 
   .sidebar {
     padding-top: 70px;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .main-content.sidebar-active {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 300px;
   }
 }
 

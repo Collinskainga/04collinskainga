@@ -45,10 +45,12 @@ contactForm.addEventListener("submit", async (event) => {
 // Sidebar toggle
 const hamburger = document.querySelector(".hamburger");
 const sidebar = document.querySelector(".sidebar");
+const mainContent = document.querySelector(".main-content");
 
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   sidebar.classList.toggle("active");
+  mainContent.classList.toggle("sidebar-active");
 });
 
 // Close sidebar when clicking a link
@@ -56,5 +58,6 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("active");
     sidebar.classList.remove("active");
+    mainContent.classList.remove("sidebar-active");
   });
 });
