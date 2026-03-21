@@ -54,10 +54,15 @@ hamburger.addEventListener("click", () => {
 });
 
 // Close sidebar when clicking a link
-document.querySelectorAll(".nav-links a").forEach((link) => {
+document.querySelectorAll(".nav-item").forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("active");
     sidebar.classList.remove("active");
     mainContent.classList.remove("sidebar-active");
+    // Set active class
+    document
+      .querySelectorAll(".nav-item")
+      .forEach((i) => i.classList.remove("active"));
+    link.classList.add("active");
   });
 });
