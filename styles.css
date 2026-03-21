@@ -59,6 +59,36 @@ nav {
   color: var(--accent);
 }
 
+/* Mobile responsive nav */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .nav-links a {
+    padding: 8px 10px;
+    font-size: 0.74rem;
+  }
+
+  .hero {
+    padding: 100px 24px 70px;
+  }
+
+  section {
+    padding: 80px 24px;
+  }
+}
+
 .nav-links {
   display: flex;
   list-style: none;
