@@ -199,23 +199,41 @@
           Have a project in mind or just want to say hi? Fill out the form below
           and I'll get back to you.
         </p>
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" placeholder="Collins Kainga" />
+              <input
+                id="name"
+                type="text"
+                placeholder="Collins Kainga"
+                required
+              />
             </div>
             <div class="form-group">
               <label>Your Email</label>
-              <input type="email" placeholder="collinskainga@gmail.com" />
+              <input
+                id="email"
+                type="email"
+                placeholder="collinskainga@gmail.com"
+                required
+              />
             </div>
           </div>
           <div class="form-group">
             <label>Your Message</label>
-            <textarea placeholder="Write your message here..."></textarea>
+            <textarea
+              id="message"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
           </div>
-          <button class="form-submit">Send Message</button>
+          <button type="submit" class="form-submit">Send Message</button>
         </form>
+        <p
+          id="contactResult"
+          style="margin-top: 0.75rem; font-weight: bold"
+        ></p>
       </div>
     </section>
 
@@ -228,5 +246,7 @@
         <a href="#">GitHub</a>
       </div>
     </footer>
+
+    <script src="/script.js"></script>
   </body>
 </html>

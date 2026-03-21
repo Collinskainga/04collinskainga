@@ -1,0 +1,43 @@
+const contactForm = document.getElementById("contactForm");
+const resultText = document.getElementById("contactResult");
+
+contactForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !message) {
+    resultText.textContent = "Please fill in all fields.";
+    resultText.style.color = "crimson";
+    return;
+  }
+
+  try {
+    const response = await fetch("/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw new Error(data.error || "Unable to send message");
+    }
+
+    resultText.textContent = "Message sent successfully! Thank you.";
+    resultText.style.color = "green";
+    contactForm.reset();
+  } catch (err) {
+    console.error(err);
+    resultText.textContent =
+      "Could not send message. Opening mail client as fallback.";
+    resultText.style.color = "orange";
+
+    const mailto = `mailto:collinskainga2004@gmail.com?subject=${encodeURIComponent("Contact from Portfolio: " + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+    window.location.href = mailto;
+  }
+});
