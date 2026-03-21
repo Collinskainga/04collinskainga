@@ -60,7 +60,7 @@ nav {
 }
 
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   background: none;
   border: none;
@@ -146,35 +146,12 @@ nav {
     padding: 14px 16px;
   }
 
-  .hamburger {
-    display: flex;
-  }
-
   .sidebar {
     padding-top: 70px;
-    transform: translateX(-100%);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
   }
 
   .main-content.sidebar-active {
     margin-left: 0;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .hamburger {
-    display: none;
-  }
-
-  .sidebar {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 300px;
   }
 }
 
