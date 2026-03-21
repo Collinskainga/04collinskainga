@@ -59,33 +59,90 @@ nav {
   color: var(--accent);
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background: var(--surface);
+  padding: 80px 20px 20px;
+  transition: left 0.3s ease;
+  z-index: 99;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 10px 0;
+  display: block;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
 /* Mobile responsive nav */
 @media screen and (max-width: 768px) {
   nav {
     padding: 14px 16px;
-    flex-wrap: wrap;
-    gap: 10px;
   }
 
-  .nav-links {
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
+  .hamburger {
+    display: flex;
   }
 
-  .nav-links a {
-    padding: 8px 10px;
-    font-size: 0.74rem;
-  }
-
-  .hero {
-    padding: 100px 24px 70px;
-  }
-
-  section {
-    padding: 80px 24px;
+  .sidebar {
+    padding-top: 70px;
   }
 }
 

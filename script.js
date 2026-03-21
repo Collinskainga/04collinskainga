@@ -41,3 +41,20 @@ contactForm.addEventListener("submit", async (event) => {
     window.location.href = mailto;
   }
 });
+
+// Sidebar toggle
+const hamburger = document.querySelector(".hamburger");
+const sidebar = document.querySelector(".sidebar");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  sidebar.classList.toggle("active");
+});
+
+// Close sidebar when clicking a link
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    sidebar.classList.remove("active");
+  });
+});
