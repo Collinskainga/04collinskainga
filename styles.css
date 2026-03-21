@@ -204,8 +204,12 @@ nav {
     padding: 14px 16px;
   }
 
+  .hamburger {
+    display: flex;
+  }
+
   .sidebar {
-    padding-top: 70px;
+    padding-top: 50px;
   }
 
   .main-content.sidebar-active {
