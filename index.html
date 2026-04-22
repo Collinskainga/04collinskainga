@@ -7,144 +7,127 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- PARTICLES CANVAS -->
+    <canvas id="particles"></canvas>
+
+    <!-- DRAWER OVERLAY -->
+    <div class="drawer-overlay" id="overlay"></div>
+
     <!-- NAV -->
     <nav>
-      <div class="logo">CK</div>
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a class="logo" href="#">CK</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
       </button>
     </nav>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-      <!-- Logo -->
-      <a class="logo" href="#">
-        <div class="logo-icon">CK</div>
-      </a>
-
-      <!-- Main nav -->
-      <a class="nav-item" href="#">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-          <polyline points="9,22 9,12 15,12 15,22" />
-        </svg>
-        Home
-      </a>
-
-      <a class="nav-item" href="#about">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-          <circle cx="12" cy="7" r="4" />
-        </svg>
-        About
-      </a>
-
-      <a class="nav-item" href="#skills">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polygon
-            points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
-          />
-        </svg>
-        Skills
-      </a>
-
-      <a class="nav-item" href="#services">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="3" />
-          <path
-            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-          />
-        </svg>
-        Services
-      </a>
-
-      <a class="nav-item" href="#contact">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-          />
-          <polyline points="22,6 12,13 2,6" />
-        </svg>
-        Contact
-      </a>
+    <!-- SIDE DRAWER (opens from right — same side as hamburger) -->
+    <div class="nav-drawer" id="drawer">
+      <ul>
+        <li><a href="#" onclick="closeDrawer()">Home</a></li>
+        <li><a href="#about" onclick="closeDrawer()">About</a></li>
+        <li><a href="#skills" onclick="closeDrawer()">Skills</a></li>
+        <li><a href="#services" onclick="closeDrawer()">Services</a></li>
+        <li><a href="#contact" onclick="closeDrawer()">Contact</a></li>
+      </ul>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-      <!-- HERO -->
-      <div class="hero">
-        <p class="hero-eyebrow">Welcome to my portfolio</p>
-        <h1>
-          <span class="name">HI, I'M COLLINS KAINGA</span>
-          <span class="role">& I AM AN INFORMATION SYSTEMS STUDENT</span>
-        </h1>
-        <p>
-          I build websites, explore technology, and turn ideas into digital
-          solutions.
-        </p>
-        <div class="hero-cta">
-          <a href="#about" class="btn btn-primary">Know More</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
-        </div>
-        <div class="scroll-indicator">
-          <div class="scroll-line"></div>
-          <span>Scroll</span>
-        </div>
+    <!-- HERO -->
+    <div class="hero">
+      <p class="hero-tag">Welcome to my portfolio</p>
+      <h1>
+        <span class="hello">Hello,</span>
+        <span class="name">I'm Collins Kainga,</span>
+        <span class="role">Information Systems Student</span>
+      </h1>
+      <p class="hero-desc">
+        I build websites, explore technology, and turn ideas into digital
+        solutions.
+      </p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary">Know More</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <div class="about-wrap">
+      <!-- Spinning badge -->
+      <div
+        class="hero-badge"
+        style="
+          animation:
+            fadeIn 1s 1.2s forwards,
+            spin 14s linear infinite;
+          opacity: 0;
+          position: absolute;
+          right: 64px;
+          bottom: 120px;
+          width: 110px;
+          height: 110px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <svg
+          viewBox="0 0 110 110"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="circlePath"
+            d="M 55,55 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
+          />
+          <text
+            font-family="JetBrains Mono"
+            font-size="9"
+            fill="rgba(0,229,160,0.5)"
+            letter-spacing="4"
+          >
+            <textPath href="#circlePath">
+              COLLINS KAINGA · PORTFOLIO · 2025 ·
+            </textPath>
+          </text>
+        </svg>
+        <div
+          style="
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+          "
+        ></div>
+      </div>
+
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-wrap">
+        <div class="about-grid">
           <div class="about-img-wrap">
             <img src="collins.jpg" alt="Collins Kainga" />
+            <div class="img-frame"></div>
+            <div class="img-dot"></div>
           </div>
           <div class="about-text">
-            <p class="section-label">Get to know me</p>
-            <h2 class="section-title"><span>Know</span> About Me</h2>
+            <p class="section-tag">Get to know me</p>
+            <h2 class="section-title">Know <span class="hl">About</span> Me</h2>
             <p>
               I'm Collins, a student at Malawi University of Business and
               Applied Science, a developer in making with a passion for web
@@ -160,64 +143,110 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <div class="divider"></div>
-
-      <!-- EXPERTISE -->
-      <div class="expertise-wrap" id="skills">
-        <div class="expertise-inner">
-          <p class="section-label">What I Know</p>
-          <h2 class="section-title"><span>Area Of</span> Expertise</h2>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <div class="skill-name">C++</div>
-              <div class="skill-bar-wrap">
-                <div class="skill-header">
-                  <span class="skill-label">Proficiency</span>
-                  <span class="skill-percent">70%</span>
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-wrap">
+        <div class="skills-layout">
+          <div class="skills-left">
+            <p class="section-tag">What I Know</p>
+            <h2 class="section-title">
+              Area Of <span class="hl">Expertise</span>
+            </h2>
+            <p>
+              For a more detailed overview, these are the core tools and
+              languages I work with — shaping how I think about code and
+              problem-solving.
+            </p>
+            <div class="skill-items">
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-row-name">C++</span>
+                  <span class="skill-row-pct">70%</span>
                 </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="bar-track"><div class="bar-fill b70"></div></div>
               </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-name">HTML</div>
-              <div class="skill-bar-wrap">
-                <div class="skill-header">
-                  <span class="skill-label">Proficiency</span>
-                  <span class="skill-percent">80%</span>
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-row-name">HTML</span>
+                  <span class="skill-row-pct">80%</span>
                 </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="bar-track"><div class="bar-fill b80"></div></div>
               </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-name">CSS</div>
-              <div class="skill-bar-wrap">
-                <div class="skill-header">
-                  <span class="skill-label">Proficiency</span>
-                  <span class="skill-percent">50%</span>
+              <div class="skill-row">
+                <div class="skill-row-top">
+                  <span class="skill-row-name">CSS</span>
+                  <span class="skill-row-pct">50%</span>
                 </div>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill"></div>
-                </div>
+                <div class="bar-track"><div class="bar-fill b50"></div></div>
               </div>
             </div>
           </div>
+
+          <!-- Word / tag cloud like in reference design -->
+          <div class="skills-cloud" aria-hidden="true">
+            <span class="cloud-tag" style="--s: 0.8rem; --c: #6b7280"
+              >HTML</span
+            >
+            <span class="cloud-tag" style="--s: 1.6rem; --c: #eef0f5">CSS</span>
+            <span class="cloud-tag" style="--s: 0.9rem; --c: #4d9fff">C++</span>
+            <span class="cloud-tag" style="--s: 1.2rem; --c: #6b7280"
+              >Algorithms</span
+            >
+            <span class="cloud-tag" style="--s: 2rem; --c: #00e5a0"
+              >Web Dev</span
+            >
+            <span class="cloud-tag" style="--s: 0.78rem; --c: #6b7280"
+              >Flexbox</span
+            >
+            <span class="cloud-tag" style="--s: 1rem; --c: #eef0f5">Grid</span>
+            <span class="cloud-tag" style="--s: 1.4rem; --c: #ff6b35">MIS</span>
+            <span class="cloud-tag" style="--s: 0.9rem; --c: #6b7280"
+              >Semantic HTML</span
+            >
+            <span class="cloud-tag" style="--s: 1.8rem; --c: #eef0f5"
+              >Problem Solving</span
+            >
+            <span class="cloud-tag" style="--s: 0.75rem; --c: #4d9fff"
+              >Data Structures</span
+            >
+            <span class="cloud-tag" style="--s: 1.1rem; --c: #6b7280"
+              >Responsive Design</span
+            >
+            <span class="cloud-tag" style="--s: 1.3rem; --c: #00e5a0">Git</span>
+            <span class="cloud-tag" style="--s: 0.8rem; --c: #6b7280"
+              >Accessibility</span
+            >
+            <span class="cloud-tag" style="--s: 2.2rem; --c: #eef0f5"
+              >JavaScript</span
+            >
+            <span class="cloud-tag" style="--s: 0.9rem; --c: #ff6b35">OOP</span>
+            <span class="cloud-tag" style="--s: 1rem; --c: #6b7280"
+              >VS Code</span
+            >
+            <span class="cloud-tag" style="--s: 0.75rem; --c: #4d9fff"
+              >Linux</span
+            >
+            <span class="cloud-tag" style="--s: 1.5rem; --c: #6b7280"
+              >Digital Business</span
+            >
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- SERVICES -->
-      <section id="services">
-        <p class="section-label">What I Offer</p>
-        <h2 class="section-title">Area Of My <span>Services</span></h2>
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-wrap">
+        <p class="section-tag">What I Offer</p>
+        <h2 class="section-title">
+          Area Of My <span class="hl">Services</span>
+        </h2>
         <div class="services-grid">
           <div class="service-card">
+            <div class="service-num">01</div>
             <div class="service-icon">⚙️</div>
             <h3>C++ Development</h3>
             <p>
@@ -229,8 +258,8 @@
               efficient and reliable solutions.
             </p>
           </div>
-
           <div class="service-card">
+            <div class="service-num">02</div>
             <div class="service-icon">🌐</div>
             <h3>HTML Structuring</h3>
             <p>
@@ -242,8 +271,8 @@
               strong backbone for any website.
             </p>
           </div>
-
           <div class="service-card">
+            <div class="service-num">03</div>
             <div class="service-icon">🎨</div>
             <h3>CSS Styling</h3>
             <p>
@@ -256,138 +285,76 @@
             </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- STATS STRIP -->
-      <div class="stats-strip">
-        <div class="stats-inner">
-          <div>
-            <div class="stat-num">3+</div>
-            <div class="stat-label">Languages</div>
-          </div>
-          <div>
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Projects</div>
-          </div>
-          <div>
-            <div class="stat-num">2+</div>
-            <div class="stat-label">Years Learning</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Dedication</div>
-          </div>
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stats-inner">
+        <div>
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Languages</div>
+        </div>
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div>
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Years Learning</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Dedication</div>
         </div>
       </div>
+    </div>
 
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="contact-wrap">
-          <p class="section-label">Get in Touch</p>
-          <h2 class="section-title">Contact <span>Me</span></h2>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-wrap">
+        <div class="contact-inner">
+          <p class="section-tag" style="justify-content: center">
+            Get in Touch
+          </p>
+          <h2 class="section-title" style="text-align: center">
+            Contact <span class="hl">Me</span>
+          </h2>
           <p>
             Have a project in mind or just want to say hi? Fill out the form
             below and I'll get back to you.
           </p>
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" onsubmit="return false;">
             <div class="form-row">
               <div class="form-group">
                 <label>Your Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Collins Kainga"
-                  required
-                />
+                <input type="text" placeholder="Collins Kainga" />
               </div>
               <div class="form-group">
                 <label>Your Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="collinskainga@gmail.com"
-                  required
-                />
+                <input type="email" placeholder="collinskainga@gmail.com" />
               </div>
             </div>
             <div class="form-group">
               <label>Your Message</label>
-              <textarea
-                id="message"
-                placeholder="Write your message here..."
-                required
-              ></textarea>
+              <textarea placeholder="Write your message..."></textarea>
             </div>
-            <button type="submit" class="form-submit">Send Message</button>
+            <button class="form-submit">Send Message</button>
           </form>
-          <p
-            id="contactResult"
-            style="margin-top: 0.75rem; font-weight: bold"
-          ></p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- FOOTER -->
-      <footer>
-        <div class="footer-logo">CK</div>
-        <span>© 2025 Collins Kainga. All rights reserved.</span>
-        <div class="footer-links">
-          <a href="#">Blog</a>
-          <a href="#">GitHub</a>
-        </div>
-      </footer>
-    </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">CK</div>
+      <span>© 2025 Collins Kainga. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#">Blog</a>
+        <a href="#">GitHub</a>
+      </div>
+    </footer>
 
-    <script>
-      const contactForm = document.getElementById("contactForm");
-      const resultText = document.getElementById("contactResult");
-
-      contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        if (!name || !email || !message) {
-          resultText.textContent = "Please fill in all fields.";
-          resultText.style.color = "crimson";
-          return;
-        }
-
-        // Since no backend on GitHub Pages, use mailto directly
-        const mailto = `mailto:collinskainga2004@gmail.com?subject=${encodeURIComponent("Contact from Portfolio: " + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
-        window.location.href = mailto;
-
-        resultText.textContent = "Opening email client...";
-        resultText.style.color = "green";
-        contactForm.reset();
-      });
-
-      // Sidebar toggle
-      const hamburger = document.querySelector(".hamburger");
-      const sidebar = document.querySelector(".sidebar");
-      const mainContent = document.querySelector(".main-content");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        sidebar.classList.toggle("active");
-        mainContent.classList.toggle("sidebar-active");
-      });
-
-      // Close sidebar when clicking a link
-      document.querySelectorAll(".nav-item").forEach((link) => {
-        link.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          sidebar.classList.remove("active");
-          mainContent.classList.remove("sidebar-active");
-          // Set active class
-          document
-            .querySelectorAll(".nav-item")
-            .forEach((i) => i.classList.remove("active"));
-          link.classList.add("active");
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
