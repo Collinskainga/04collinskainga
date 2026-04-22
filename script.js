@@ -107,3 +107,58 @@ function drawParticles() {
   requestAnimationFrame(drawParticles);
 }
 drawParticles();
+
+// ── EMAILJS ──
+emailjs.init("rIdp-xszFQQNSLfn4");
+
+const contactForm = document.getElementById("contactForm");
+const submitBtn = document.getElementById("submitBtn");
+const feedback = document.getElementById("formFeedback");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("from_name").value.trim();
+  const email = document.getElementById("from_email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !message) {
+    feedback.style.display = "block";
+    feedback.style.color = "#ff6b35";
+    feedback.textContent = "⚠ Please fill in all fields.";
+    return;
+  }
+
+  // Loading state
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+  submitBtn.style.opacity = "0.7";
+  feedback.style.display = "none";
+
+  const templateParams = {
+    from_name: name,
+    from_email: email,
+    message: message,
+  };
+
+  emailjs
+    .send("service_0dd8a6a", "template_ccjobn8", templateParams)
+    .then(() => {
+      submitBtn.textContent = "Send Message";
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = "1";
+      feedback.style.display = "block";
+      feedback.style.color = "#00e5a0";
+      feedback.textContent = "✓ Message sent! I'll get back to you soon.";
+      contactForm.reset();
+    })
+    .catch((error) => {
+      submitBtn.textContent = "Send Message";
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = "1";
+      feedback.style.display = "block";
+      feedback.style.color = "#ff6b35";
+      feedback.textContent = "✗ Something went wrong. Please try again.";
+      console.error("EmailJS error:", error);
+    });
+});
